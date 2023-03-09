@@ -1,171 +1,102 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CV template for ProDigital proposal
-%
-% Author: Martin Hoelzer
-%
-% Important note:
-% This template needs to be compiled with XeLaTeX.
-% The main document font is called Fontin and can be downloaded for free
-% from here: http://www.exljbris.com/fontin.html
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{russell}
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS - JUST LEAVE THIS AT IS IS
-%----------------------------------------------------------------------------------------
-\documentclass[a4paper,10pt]{article} % Default font size and paper size
-\usepackage{fontspec} % For loading fonts
-\usepackage{eurosym}
+%
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
-%% IF YOU WANT TO COMPILE THIS TEX LOCALLY, COMMENT THE FOLLOWING LINES IF THE FONTS ARE NOT INSTALLED
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont{Fontin-Regular.otf}[
-BoldFont       = Fontin-Bold.otf ,
-ItalicFont     = Fontin-Italic.otf ,
-SmallCapsFont  = Fontin-SmallCaps.otf ]
-%% UNTIL HERE 
+% Specify the location of the included fonts
+\fontdir[fonts/]
 
-\usepackage{xunicode,xltxtra,url,parskip} % Formatting packages
-\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colors
-\usepackage[big]{layaureo} % Margin formatting of the A4 page, an alternative to layaureo can be \usepackage{fullpage}
-% To reduce the height of the top margin uncomment: \addtolength{\voffset}{-1.3cm}
-\usepackage{hyperref} % Required for adding links	and customizing them
-\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link color
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colors throughout the document
-\usepackage{titlesec} % Used to customize the \section command
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
-\titlespacing{\section}{0pt}{3pt}{3pt} % Spacing around sections
+% Color for highlights
+% russell Colors: russell-emerald, russell-skyblue, russell-red, russell-pink, russell-orange
+%                 russell-nephritis, russell-concrete, russell-darknight, russell-purple
+\colorlet{russell}{russell-black}
+% Uncomment if you would like to specify your own color
+% \definecolor{russell}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with russell color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 
-%----------------------------------------------------------------------------------------
-%----------------------------------------------------------------------------------------
-%	MAIN DOCUMENT - PLEASE ENTER YOUR DATA HERE
-%
-%	Some basic LaTeX commands: 
-%
-%	A '%' marks a comment that will not be shown in the final PDF
-%	If you want to remove content, just comment the line(s) with a leading '%'
-%
-%	When you open an environment with a '{' you need to close it with a corresponding '}'!
-%
-%	\textbf{TEXT} 						makes TEXT bold font
-%	\emph{TEXT} 						makes TEXT italics font
-%	\textsc{TEXT}						makes TEXT small caps font
-%	\small \footnotesize \Huge ...		defines font sizes
-%	\begin{tabular} ... \end{tabular} 	defines a table environment
-%										inside a table environment a '&' sign splits between columns 
-%										inside a table a '\\' marks the end of a row
-%----------------------------------------------------------------------------------------
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{Doe}{John}
+% \position{Software Architect{\enskip\cdotp\enskip}Security Expert}
+\address{YOUR ADDRESS}
+
+\mobile{000000000000}
+\email{thisis@fakeemail.com}
+%\dateofbirth{January 1st, 1970}
+%\homepage{www.posquit0.com} 
+\github{github.com/themagicalmammal}
+\linkedin{linkedin.com/in/themagicalmammal}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \kaggle{kaggle-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra information}
+
+% \quote{``Simplicity is deceptively complicated."}
+
+
+%-------------------------------------------------------------------------------
+ %	BIBLIOGRAPHY
+ %-------------------------------------------------------------------------------
+\addbibresource{cv/references.bib}
+
+%-------------------------------------------------------------------------------
 \begin{document}
-\pagestyle{empty} % Removes page numbering
-\font\fb=''[cmr10]'' % Change the font of the \LaTeX command under the skills section
 
-%----------------------------------------------------------------------------------------
-%	NAME AND CONTACT INFORMATION
-%----------------------------------------------------------------------------------------
-\par{\centering{\Huge Dr. \textsc{Martin Hölzer}}\bigskip\par} % Your name
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
 
-\section{Personal Data}
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {}
+  {\thepage}
 
-\begin{tabular}{rl}
-\textsc{Name:} 						& Dr. rer. nat. Martin Hölzer \\
-\textsc{Gender:}                  	& Male \\
-\textsc{Place and Date of Birth:} 	& Rudolstadt, Germany  | 16 March 1988  \\
-\textsc{Address:} 					& Jansonstr. 11, 07745 Jena  \\
-\textsc{Phone:} 					& +49 160 92675865\\
-\textsc{email:} 					& \href{mailto:martin.hoelzer@uni-jena.de}{martin.hoelzer@uni-jena.de} \\
-\textsc{Family status:}				& Single \\
-\end{tabular}
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\input{cv/summary.tex}
+\input{cv/education.tex}
+\input{cv/experience.tex}
+\input{cv/projects.tex}
+\input{cv/skills.tex}
+\input{cv/achievements.tex}
+\input{cv/publications.tex}
+\input{cv/interests.tex}
+\input{cv/languages.tex}
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE 
-%----------------------------------------------------------------------------------------
-\section{Work Experience}
-
-%%BEGIN TABLE, one line is one row in the final table. Each row has to end with two backslash: \\
-%%								columns are separated by a '&'. The table only has 2 columns! So one '&' per row
-\begin{tabular}{r|p{11cm}}
-since 02/2018             	& Post-Doc at RNA Bioinformatics/High-Throughput Analysis, 
-								Prof. Dr. Manja Marz, University of Jena \\
-since 03/2017            	& Founding member of the ``European Virus Bioinformatics Center'' 
-                            	(EVBC), University of Jena \\
-08/2013--06/2017            & PhD student, RNA Bioinformatics/High-Throughput Analysis, 
-								Prof. Dr. Manja Marz, University of Jena \\					
-\end{tabular}
-%%END TABLE
-
-%----------------------------------------------------------------------------------------
-%	SCIENTIFIC EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Scientific Education}
-
-%%BEGIN TABLE
-\begin{tabular}{r|l}	
-01/2018 							& \textsc{Doctorate degree}, Dr. rer. nat. \\
-									& University of Jena \\
-									& Grade: summa cum laude \\ 
-\footnotesize{08/2013--06/2017} 	& \footnotesize{PhD student at University of Jena}\\
-
-\multicolumn{2}{c}{} \\	% this is just an empty row
-
-12/2012 							& \textsc{Diploma in Bioinformatics}\\
-          							& University of Jena  \\
-          							& Grade: 1.4 \\
-\footnotesize{10/2007--12/2012} 	& \footnotesize{Studies of Bioinformatics at University of Jena}\\
-\end{tabular}
-%%END TABLE
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%	
-%	If authors have special letters/accents check this table: https://en.wikibooks.org/wiki/LaTeX/Special_Characters
-%	put your name in \textbf{YOUR NAME} 
-%
-%	The maybe easiest way to enter your publications: 
-%		1) go to https://scholar.google.de/
-% 		2) search for you publication
-%		3) below you publication, click the second 'cite' sign and select 'BibTeX'
-%		4) from the entry that shows up, copy the title, authors, journal, year, etc. into this document
-%				--> special letters and accents will be already included in the correct format!
-%----------------------------------------------------------------------------------------
-\section{Ten Publications}  
-
-\begin{small}
-
-P. Möbius, G. Nordsiek, \textbf{M. Hölzer}, M. Jarek, M. Marz, and H. Köhler.
-Complete Genome Sequence of JII-1961, a Bovine \emph{Mycobacterium avium} subsp.\ \emph{paratuberculosis} Field Isolate from Germany.
-\emph{Genome Announc.} 5(34), 2017. 
-
-J. Fuchs, \textbf{M. Hölzer}, M.Schilling, C. Patzina, A. Schoen, T. Hoenen, G. Zimmer, M. Marz, F. Weber, M. A. Müller, and G. Kochs.
-Evolution and Antiviral Specificities of Interferon-Induced Mx Proteins of Bats against Ebola, Influenza, and Other RNA Viruses.
-\emph{J Virol.} 12; 91(15), 2017. 
-
-\textbf{M.~H\"olzer}, V.~Kr\"ahling, F.~Amman, E.~Barth, S.~H.~Bernhart, V.~A.~O.~Carmelo,  M.~Collatz, G.~Doose, F.~Eggenhofer, J.~Ewald, J.~Fallmann, L.~M.~Feldhahn, M.~Fricke, J.~Gebauer, A.~J.~Gruber, F.~Hufsky, H.~Indrischek, S.~Kanton, J.~Linde, N.~M.~Berrospi, R.~Ochsenreiter, K.~Rieger, L.~Rivarola-Duarte, A.~H.~Sahyoun, S.~J.~Saunders, S.~E.~Seemann, A.~Tanzer, B.~Vogel, S.~Wehner, M.~T.~Wolfinger, R.~Backofen, J.~Gorodkin, I.~Grosse, I.~Hofacker, S.~Hoffmann, C.~Kaleta, P.~F.~Stadler, S.~Becker, and M.~Marz.
-Differential transcriptional responses to Ebola and Marburg virus infection in bat and human cells.
-\emph{Scientific reports} 6:34589, 2016.
-
-A. H. Sahyoun, \textbf{M. Hölzer}, F. Jühling, C. Höner Zu Siederdissen, M. Al-Arab, K. Tout, M. Marz, M. Middendorf, P. F. Stadler, and M.~Bernt. 
-Towards a comprehensive picture of alloacceptor {tRNA} remolding in metazoan mitochondrial genomes. 
-\emph{Nucleic Acids Res.} 43(16):8044--8056, 2015.
-
-\end{small}
-
-
-
-%----------------------------------------------------------------------------------------
-%	SCHOLARSHIPS AND ADDITIONAL INFO
-%----------------------------------------------------------------------------------------
-%\section{Scholarships and Certificates}
-
-%\begin{tabular}{rl}
-%\textsc{Sept.} 2018 		& Faculty of Science Masters Scholarship \footnotesize(30,000 $\euro$)\normalsize\\
-
-%\end{tabular}
-
-
-
-
-
-
+\vspace*{\fill}
+\centering{\textbf{References available upon request.}}
+%-------------------------------------------------------------------------------
 \end{document}
