@@ -3,7 +3,7 @@ APPENDIX=appendix
 
 default: $(NAME).pdf
 
-$(NAME).pdf: $(NAME).tex 
+$(NAME).pdf: $(NAME).tex  cv/*.tex
 	latexmk -outdir=$(OUTDIR) -xelatex $(NAME).tex
 
 .PHONY: clean
